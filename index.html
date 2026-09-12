@@ -13,7 +13,7 @@
             scroll-behavior: smooth;
         }
         body {
-            background-color: #09090e;
+            background-color: #050508;
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -24,23 +24,33 @@
             position: relative;
         }
 
-        /* Анимированный фоновый градиент */
+        /* Сложные неоновые световые полосы и градиенты на фоне */
         body::before {
             content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #7c3aed, #06b6d4);
-            filter: blur(120px);
-            opacity: 0.15;
-            animation: pulseBg 8s infinite alternate;
-            z-index: -1;
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.1) 0%, transparent 40%),
+                linear-gradient(45deg, rgba(124, 58, 237, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+            z-index: -2;
+            pointer-events: none;
         }
 
-        @keyframes pulseBg {
-            0% { transform: scale(1) translate(-50px, -50px); }
-            100% { transform: scale(1.3) translate(50px, 50px); }
+        /* Светящиеся неоновые полосы по бокам */
+        .neon-line {
+            position: fixed;
+            width: 2px;
+            height: 100vh;
+            background: linear-gradient(180deg, transparent, #7c3aed, #06b6d4, transparent);
+            opacity: 0.3;
+            z-index: -1;
         }
+        .neon-line.left { left: 10%; }
+        .neon-line.right { right: 10%; }
 
         .section {
             height: 100vh;
@@ -48,84 +58,130 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            padding: 20px;
+            padding: 40px;
         }
 
+        /* Первая секция - по центру */
         .container {
             text-align: center;
-            background: rgba(24, 24, 32, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 45px;
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            max-width: 420px;
+            background: rgba(18, 18, 26, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(124, 58, 237, 0.25);
+            max-width: 450px;
             width: 100%;
             animation: fadeIn 1s ease-out;
         }
 
+        /* Вторая секция - крупная, без рамки, прижата влево */
+        .container-left {
+            text-align: left;
+            background: rgba(15, 15, 22, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 70px 60px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            border: none; /* Убрали рамку полностью */
+            max-width: 750px;
+            width: 100%;
+            margin-right: auto;
+            margin-left: 8%; /* Сдвинули влево с отступом */
+            animation: fadeIn 1s ease-out;
+            position: relative;
+        }
+
+        /* Декоративная неоновая подсветка слева от большой карточки */
+        .container-left::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20%;
+            height: 60%;
+            width: 4px;
+            background: linear-gradient(180deg, #7c3aed, #06b6d4);
+            border-radius: 4px;
+            box-shadow: 0 0 15px #7c3aed;
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-size: 36px;
-            margin-bottom: 8px;
+            font-size: 42px;
+            margin-bottom: 10px;
             background: linear-gradient(90deg, #c084fc, #38bdf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+        }
+
+        .container-left h1 {
+            font-size: 48px;
         }
 
         p {
             color: #9ca3af;
-            font-size: 15px;
-            margin-bottom: 30px;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .container-left p {
+            font-size: 18px;
+            max-width: 550px;
         }
 
         .btn {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 15px;
+            display: inline-block;
+            padding: 16px 32px;
             background: linear-gradient(135deg, #7c3aed, #6d28d9);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: bold;
-            font-size: 15px;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+            font-size: 16px;
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.7);
             background: linear-gradient(135deg, #8b5cf6, #7c3aed);
         }
 
         .btn-telegram {
             background: linear-gradient(135deg, #0088cc, #005f9e);
-            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.45);
         }
 
         .btn-telegram:hover {
             background: linear-gradient(135deg, #229ed9, #0088cc);
-            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.6);
+            box-shadow: 0 8px 25px rgba(0, 136, 204, 0.7);
         }
 
         .alert-text {
             color: #d1d5db;
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 25px;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            max-width: 550px;
         }
     </style>
 </head>
 <body>
+
+    <!-- Светящиеся линии на фоне -->
+    <div class="neon-line left"></div>
+    <div class="neon-line right"></div>
 
     <!-- Первая секция (Главная) -->
     <div class="section" id="main">
@@ -133,20 +189,18 @@
             <h1>Flouent</h1>
             <p>Твоя будущая зависимость</p>
             
-            <!-- Кнопка скроллит вниз -->
             <a href="#closed-stage" class="btn">Скачать Flouent</a>
         </div>
     </div>
 
-    <!-- Вторая секция (Блок закрытой стадии, куда перекидывает) -->
+    <!-- Вторая секция (Большой блок слева без рамки) -->
     <div class="section" id="closed-stage">
-        <div class="container">
+        <div class="container-left">
             <h1>Закрытый тест</h1>
             <div class="alert-text">
                 Софт находится в закрытой стадии. Вы можете перейти в Telegram и следить за новостями.
             </div>
             
-            <!-- Кнопка ведет в ТГ -->
             <a href="https://t.me/+Ix5UmUgspoUyNWJk" target="_blank" class="btn btn-telegram">Перейти в Telegram</a>
         </div>
     </div>
