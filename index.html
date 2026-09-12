@@ -59,6 +59,7 @@
             padding: 40px;
         }
 
+        /* Первая карточка — по центру с рамкой */
         .section-center {
             justify-content: center;
         }
@@ -77,6 +78,7 @@
             margin: 0 auto;
         }
 
+        /* Вторая карточка — большая, слева, БЕЗ рамки, с неоновой полосой сбоку */
         .section-left {
             justify-content: flex-start;
             padding-left: 10%;
@@ -96,6 +98,7 @@
             position: relative;
         }
 
+        /* Фирменная неоновая полоса с левого края */
         .container-left::before {
             content: '';
             position: absolute;
@@ -179,6 +182,7 @@
     <div class="neon-line left"></div>
     <div class="neon-line right"></div>
 
+    <!-- Первая секция -->
     <div class="section section-center" id="main">
         <div class="container">
             <h1>Flouent</h1>
@@ -187,6 +191,7 @@
         </div>
     </div>
 
+    <!-- Вторая секция -->
     <div class="section section-left" id="closed-stage">
         <div class="container-left">
             <h1>Закрытый бета-тест</h1>
