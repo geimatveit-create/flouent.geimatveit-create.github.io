@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flouent Client | Minecraft 1.21.1</title>
+    <title>Flouent | Твоя будущая зависимость</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
         body {
             background-color: #09090e;
             color: #ffffff;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -40,6 +42,15 @@
             100% { transform: scale(1.3) translate(50px, 50px); }
         }
 
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
         .container {
             text-align: center;
             background: rgba(24, 24, 32, 0.7);
@@ -59,7 +70,7 @@
         }
 
         h1 {
-            font-size: 32px;
+            font-size: 36px;
             margin-bottom: 8px;
             background: linear-gradient(90deg, #c084fc, #38bdf8);
             -webkit-background-clip: text;
@@ -69,7 +80,7 @@
 
         p {
             color: #9ca3af;
-            font-size: 14px;
+            font-size: 15px;
             margin-bottom: 30px;
         }
 
@@ -86,6 +97,8 @@
             font-size: 15px;
             box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
 
         .btn:hover {
@@ -94,32 +107,48 @@
             background: linear-gradient(135deg, #8b5cf6, #7c3aed);
         }
 
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #d1d5db;
-            box-shadow: none;
+        .btn-telegram {
+            background: linear-gradient(135deg, #0088cc, #005f9e);
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: #38bdf8;
-            color: #38bdf8;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        .btn-telegram:hover {
+            background: linear-gradient(135deg, #229ed9, #0088cc);
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.6);
+        }
+
+        .alert-text {
+            color: #d1d5db;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 25px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Flouent Client</h1>
-        <p>Лучший чит-клиент для Minecraft 1.21.1 (Fabric)</p>
-        
-        <!-- Кнопка скачивания / перехода -->
-        <a href="#" class="btn">Скачать Flouent</a>
-        
-        <!-- Кнопка твоего Discord / Сообщества -->
-        <a href="#" class="btn btn-secondary">Discord Сервер</a>
+    <!-- Первая секция (Главная) -->
+    <div class="section" id="main">
+        <div class="container">
+            <h1>Flouent</h1>
+            <p>Твоя будущая зависимость</p>
+            
+            <!-- Кнопка скроллит вниз -->
+            <a href="#closed-stage" class="btn">Скачать Flouent</a>
+        </div>
+    </div>
+
+    <!-- Вторая секция (Блок закрытой стадии, куда перекидывает) -->
+    <div class="section" id="closed-stage">
+        <div class="container">
+            <h1>Закрытый тест</h1>
+            <div class="alert-text">
+                Софт находится в закрытой стадии. Вы можете перейти в Telegram и следить за новостями.
+            </div>
+            
+            <!-- Кнопка ведет в ТГ -->
+            <a href="https://t.me/+Ix5UmUgspoUyNWJk" target="_blank" class="btn btn-telegram">Перейти в Telegram</a>
+        </div>
     </div>
 
 </body>
