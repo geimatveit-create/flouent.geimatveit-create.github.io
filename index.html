@@ -10,7 +10,6 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
         }
         body {
             background-color: #050508;
@@ -73,7 +72,6 @@
             border: 1px solid rgba(124, 58, 237, 0.25);
             max-width: 450px;
             width: 100%;
-            animation: fadeIn 1s ease-out;
         }
 
         /* Вторая секция - крупная, левее, без рамки */
@@ -90,7 +88,6 @@
             width: 100%;
             margin-right: auto;
             margin-left: 5%;
-            animation: fadeIn 1s ease-out;
             position: relative;
         }
 
@@ -105,11 +102,6 @@
             background: linear-gradient(180deg, #7c3aed, #06b6d4);
             border-radius: 4px;
             box-shadow: 0 0 20px #7c3aed;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
@@ -190,7 +182,8 @@
             <h1>Flouent</h1>
             <p>Твоя будущая зависимость</p>
             
-            <a href="#closed-stage" class="btn">Скачать Flouent</a>
+            <!-- Кнопка с JS-скроллом без добавления # в адресную строку -->
+            <button class="btn" onclick="document.getElementById('closed-stage').scrollIntoView({ behavior: 'smooth' });">Скачать Flouent</button>
         </div>
     </div>
 
